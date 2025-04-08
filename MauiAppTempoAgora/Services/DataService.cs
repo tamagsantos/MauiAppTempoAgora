@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using MauiAppTempoAgora.Models;
+﻿using MauiAppTempoAgora.Models;
 using Newtonsoft.Json.Linq;
 using System.Text.Json.Nodes;
-
 namespace MauiAppTempoAgora.Services
 {
     public class DataService
@@ -44,7 +37,7 @@ namespace MauiAppTempoAgora.Services
                         lat = (double)rascunho["coord"]["lat"],
                         lon = (double)rascunho["coord"]["lon"],
                         description = (string)rascunho["weather"][0]["description"],
-                        main = (double)rascunho["weather"][0]["main"],
+                        main = (string)rascunho["weather"][0]["main"],
                         temp_min = (double)rascunho["main"]["temp_min"],
                         temp_max = (double)rascunho["main"]["temp_max"],
                         speed = (double)rascunho["wind"]["speed"], 
@@ -57,6 +50,7 @@ namespace MauiAppTempoAgora.Services
             } // Fecha laço using
 
                 return t;
+        
         }
     }
 }
